@@ -127,6 +127,7 @@ ylabel("∠X(k) (rad)");
 
 <img width="757" height="600" alt="image" src="https://github.com/user-attachments/assets/25a658a3-c949-4cdf-9452-0873118e690a" />
 
-# RESULT: Thus, the Discrete Fourier Transform using Direct and Fast Fourier Transform of the given sequence were obtained and its magnitude and phase spectrum were plotted.
+# RESULT: 
+Thus, the Discrete Fourier Transform using Direct and Fast Fourier Transform of the given sequence were obtained and its magnitude and phase spectrum were plotted.
 
 
