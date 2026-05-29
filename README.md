@@ -12,32 +12,52 @@ PC installed with SCILAB.
 clc;
 clear;
 
-N = input("Enter N: ");
-x = input("Enter x(n): ");
+N = input("Length of the sequence N: ");
+x = input("Input sequence x(n): ");
 
-X = zeros(1,N);
-
-for k = 0:N-1
-    for n = 0:N-1
-        X(k+1) = X(k+1) + x(n+1)*exp(-%i*2*%pi*k*n/N);
-    end
+if length(x) <> N then
+   error("Length of x(n) must be equal to N");
 end
 
-disp("DFT:");
-disp(clean(X));
+X_direct = zeros(1, N);
 
-mag = abs(X);
-phase = atan(imag(X), real(X));
+for k = 0:N-1
+   sum_val = 0;
+   for n = 0:N-1
+       sum_val = sum_val + x(n+1)*exp(-%i*2*%pi*k*n/N);
+   end
+   X_direct(k+1) = sum_val;
+end
+
+X_direct = clean(X_direct);
+
+disp("DFT using Direct Method:");
+disp(X_direct);
+
+mag = abs(X_direct);
+phase = atan(imag(X_direct), real(X_direct));
+
+disp("Magnitude Spectrum:");
+disp(mag);
+
+disp("Phase Spectrum (radians):");
+disp(phase);
 
 k = 0:N-1;
+clf;
 
 subplot(2,1,1);
 plot2d3(k, mag);
-title("Magnitude Spectrum");
+title("Magnitude Spectrum of DFT");
+xlabel("k");
+ylabel("|X(k)|");
 
 subplot(2,1,2);
 plot2d3(k, phase);
-title("Phase Spectrum");
+title("Phase Spectrum of DFT");
+xlabel("k");
+ylabel("∠X(k) (rad)");
+
 
 ```
 ### OUTPUT: 
